@@ -2,11 +2,13 @@ name: stock
 channels:
   - conda-forge
   - defaults
+  - anaconda
 dependencies:
   - matplotlib=3.3.0
   - pandas=1.1.0
   - python=3.7.8
   - requests=2.24.0
+  - scikit-learn=0.23.1
   - pip:
     - requests-html==0.10.0
     - yahoo-fin==0.8.6
