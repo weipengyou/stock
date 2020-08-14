@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM alpine
-COPY helloworld.sh /
-CMD ["/helloworld.sh"]
+FROM continuumio/miniconda3
+COPY scripts /scripts
+
+RUN conda env create -f /scripts/environment.yml
+SHELL ["conda", "run", "-n", "stock", "/bin/bash", "-c"]
+
+COPY src /src
+RUN python src/test_model.py
