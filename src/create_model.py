@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 from yahoo_fin import stock_info as si
 from sklearn.pipeline import make_pipeline
 import pandas as pd
-import pickle
+import joblib
 def get_last_stock_price(ticker):
 
     return si.get_data(ticker)
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     pipe.fit('AAL')
     with open('AAL.pkl','wb') as f:
-        pickle.dump(pipe,f)
+        joblib.dump(pipe,f)
 
 
 
