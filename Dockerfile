@@ -20,4 +20,4 @@ SHELL ["conda", "run", "-n", "stock", "/bin/bash", "-c"]
 
 COPY src /src
 RUN python src/test_model.py
-ENTRYPOINT python src/test_model.py
+RUN python scripts/servmodel.py
