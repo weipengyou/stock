@@ -21,3 +21,4 @@ SHELL ["conda", "run", "-n", "stock", "/bin/bash", "-c"]
 COPY src /src
 RUN python src/test_model.py
 RUN python scripts/servmodel.py
+RUN python src/hello.py
