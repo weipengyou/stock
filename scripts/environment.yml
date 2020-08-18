@@ -10,6 +10,6 @@ dependencies:
   - requests=2.24.0
   - scikit-learn=0.20.0
   - pip:
-      - requests-html=0.6.6
+      - requests-html
       - yahoo-fin=0.8.6
 
