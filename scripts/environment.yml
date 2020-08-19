@@ -11,5 +11,5 @@ dependencies:
   - scikit-learn=0.20.0
   - pip:
       - requests-html
-      - yahoo-fin=0.8.6
+      - yahoo-fin==0.8.6
 
