@@ -1,7 +1,12 @@
-from yahoo_fin import stock_info as si
+"""
+this script can be use to download all data for SNP 500
+"""
+
 import datetime
-from pathlib import Path
 import logging
+from pathlib import Path
+
+from yahoo_fin import stock_info as si
 
 log = logging.getLogger()
 data_dir = Path('data')
