@@ -5,12 +5,10 @@ import logging
 
 import joblib
 from google.api_core.exceptions import NotFound
-# Imports the Google Cloud client library
 from google.cloud import storage
 
 
 def create_bucket(bucket_name):
-    """Creates a new bucket."""
     log = logging.getLogger()
 
     storage_client = storage.Client()
