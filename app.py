@@ -14,6 +14,7 @@ def hello():
 def get_stock_value(ticker):
     bl = create_business_logic()
     prediction = bl.do_predictions_for(ticker)
+
     return f'{prediction}\n'
 
 
