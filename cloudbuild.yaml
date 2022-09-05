@@ -1,0 +1,4 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'global-docker.pkg.dev/stock-ycng-228/ycng228/ycng_image_predictor', '.' ]
+timeout: '1200s'
