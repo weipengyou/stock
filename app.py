@@ -9,6 +9,13 @@ app = Flask(__name__)
 def hello():
     return f'Hello dear students, you should use a better route:!\nEX: get_stock_val/<ticker>\n'
 
+@app.route('/hello/<variable>', methods=['GET'])
+def hi(variable):
+    val = variable*2
+    return f'<HTML><HI>Hi {val}</HI></HTML>'
+
+
+
 
 @app.route('/get_stock_val/<ticker>', methods=['GET'])
 def get_stock_value(ticker):
