@@ -4,8 +4,8 @@ import logging
 import joblib
 
 from src.IO.get_data_from_yahoo import get_last_stock_price
-from src.IO.storage_tools import create_bucket, get_model_from_bucket, upload_file_to_bucket
-from src.algo.dummy_model import Stock_model
+from src.IO.storage_tools_pengyou import create_bucket, get_model_from_bucket, upload_file_to_bucket
+from src.algo.dummy_model_pengyou import Stock_model
 
 
 def create_business_logic():
@@ -16,7 +16,7 @@ def create_business_logic():
 class BusinessLogic:
 
     def __init__(self, model_creator):
-        self._root_bucket = 'Pengyou_model_bucket_ycng_228'
+        self._root_bucket = 'pengyou_model_bucket_ycng_228'
         self._config = configparser.ConfigParser()
         self._config.read('application.conf')
         self._model_creator = model_creator
@@ -27,10 +27,12 @@ class BusinessLogic:
 
     def get_bucket_name(self):
         return f'{self._root_bucket}_{self.get_version().replace(".", "")}'
+        #return f'{self._root_bucket}'
 
     def _get_or_create_model(self, ticker):
         log = logging.getLogger()
-        model_filename = self.get_model_filename_from_ticker(ticker)
+        #model_filename = self.get_model_filename_from_ticker(ticker)
+        model_filename = f'{ticker}.pkl'
         model = get_model_from_bucket(model_filename, self.get_bucket_name())
         if model is None:
             log.warning(f'training model for {ticker}')
@@ -40,8 +42,8 @@ class BusinessLogic:
             upload_file_to_bucket(model_filename, self.get_bucket_name())
         return model
 
-    def get_model_filename_from_ticker(self, ticker):
-        return f'{ticker}.pkl'
+    #def get_model_filename_from_ticker(self, ticker):
+    #    return f'{ticker}.pkl'
 
     def _create_bucket(self):
         create_bucket(self.get_bucket_name())

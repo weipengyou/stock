@@ -1,6 +1,6 @@
 from flask import Flask
 
-from src.business_logic.process_query import create_business_logic
+from src.business_logic.process_query_pengyou import create_business_logic
 
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def get_stock_value(ticker):
     bl = create_business_logic()
     prediction = bl.do_predictions_for(ticker)
 
-    return f'{prediction}\n'
+    return f'Prediction for ticker {ticker} is {prediction}\n'
 
 
 if __name__ == '__main__':
