@@ -18,5 +18,7 @@ dependencies:
       - google-auth
       - google-auth-httplib2
       - GitPython
+      - xgboost
+      - numpy
 
 
